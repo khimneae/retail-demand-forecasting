@@ -1,0 +1,95 @@
+/* UI-07.4 — Responsive & Final UI Polish
+   Load AFTER retail.css. No calculation, filtering, or model logic is changed.
+   Targets a small number of stable Streamlit test IDs and the existing
+   dashboard-specific .ri-kpi-grid class.
+*/
+
+/* Allow internal blocks to shrink instead of stretching the whole page. */
+[data-testid="stMainBlockContainer"],
+[data-testid="stMainBlockContainer"] [data-testid="stVerticalBlock"] {
+  min-width: 0;
+}
+
+/* Retain Streamlit's native horizontal scrolling for wide tables. */
+[data-testid="stMainBlockContainer"] [data-testid="stDataFrame"],
+[data-testid="stMainBlockContainer"] [data-testid="stVegaLiteChart"] {
+  min-width: 0;
+  max-width: 100%;
+}
+
+/* Tablet: comfortable gutters and two-column custom KPI grid. */
+@media (max-width: 1024px) {
+  [data-testid="stMainBlockContainer"] {
+    max-width: 100% !important;
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
+  }
+
+  .ri-kpi-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  .ri-kpi-grid > * {
+    min-width: 0;
+  }
+
+  [data-testid="stMainBlockContainer"] h1 {
+    font-size: clamp(1.9rem, 3.8vw, 2.5rem);
+    line-height: 1.2;
+  }
+}
+
+/* Phone: one-column KPI cards and tighter padding, not smaller unreadable data. */
+@media (max-width: 640px) {
+  [data-testid="stMainBlockContainer"] {
+    padding-top: 1rem !important;
+    padding-bottom: 2.5rem !important;
+    padding-left: 0.85rem !important;
+    padding-right: 0.85rem !important;
+  }
+
+  .ri-kpi-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 0.75rem !important;
+  }
+
+  [data-testid="stMainBlockContainer"] h1 {
+    font-size: 1.7rem !important;
+    line-height: 1.2;
+    overflow-wrap: anywhere;
+  }
+
+  [data-testid="stMainBlockContainer"] h2 {
+    font-size: 1.35rem !important;
+    line-height: 1.25;
+    overflow-wrap: anywhere;
+  }
+
+  [data-testid="stMainBlockContainer"] h3 {
+    font-size: 1.13rem !important;
+    line-height: 1.3;
+  }
+
+  [data-testid="stMainBlockContainer"] [data-testid="stMetricValue"] {
+    font-size: clamp(1.35rem, 6vw, 1.9rem);
+    overflow-wrap: anywhere;
+  }
+
+  [data-testid="stMainBlockContainer"] [data-testid="stMetricLabel"] {
+    white-space: normal;
+  }
+
+  /* Touch-friendly native action buttons. */
+  [data-testid="stMainBlockContainer"] .stButton button,
+  [data-testid="stMainBlockContainer"] .stDownloadButton button {
+    min-height: 2.75rem;
+  }
+}
+
+/* Avoid distracting motion for users who request reduced motion. */
+@media (prefers-reduced-motion: reduce) {
+  .ri-kpi-grid *, .ri-kpi-grid *::before, .ri-kpi-grid *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

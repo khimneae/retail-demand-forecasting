@@ -1,0 +1,19 @@
+{
+  "model": "HistGradientBoostingRegressor",
+  "dataset": "Test 2017",
+  "samples": 182500,
+  "forecast_horizon_days": 7,
+  "evaluation_protocol": "Rolling-origin with observed history",
+  "model_training_end": "2016-12-24",
+  "baseline": {
+    "mae": 8.841452054794521,
+    "rmse": 11.596704066478521,
+    "wape_percent": 15.032644725883056
+  },
+  "machine_learning": {
+    "mae": 6.402131429154285,
+    "rmse": 8.353661430590552,
+    "wape_percent": 10.88519924854391
+  },
+  "mae_improvement_percent": 27.589592869165045
+}

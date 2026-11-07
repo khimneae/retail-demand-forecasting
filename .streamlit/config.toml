@@ -1,0 +1,39 @@
+[theme]
+base = "dark"
+
+# Primary colors
+primaryColor = "#3B82F6"
+backgroundColor = "#0B1220"
+secondaryBackgroundColor = "#152238"
+
+# Typography
+textColor = "#F1F5F9"
+linkColor = "#60A5FA"
+
+# Borders
+borderColor = "#2B3A50"
+dataframeBorderColor = "#2B3A50"
+dataframeHeaderBackgroundColor = "#1B2A41"
+showWidgetBorder = true
+showSidebarBorder = true
+
+# Component shapes
+baseRadius = "medium"
+buttonRadius = "medium"
+
+# Data visualization palette
+chartCategoricalColors = [
+    "#38BDF8",
+    "#3B82F6",
+    "#34D399",
+    "#F59E0B",
+    "#A78BFA"
+]
+
+[theme.sidebar]
+backgroundColor = "#111D31"
+secondaryBackgroundColor = "#1B2A42"
+textColor = "#F8FAFC"
+primaryColor = "#3B82F6"
+borderColor = "#2B3A50"
+baseRadius = "medium"

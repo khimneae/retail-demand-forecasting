@@ -1,0 +1,10 @@
+{
+  "model": "Seasonal Naive (Lag 7)",
+  "dataset": "Validation",
+  "forecast_horizon_days": 7,
+  "evaluation": "Rolling-origin with observed history",
+  "samples": 179500,
+  "mae": 8.6735,
+  "rmse": 11.3623,
+  "wape_percent": 15.25
+}

@@ -218,3 +218,27 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+# ==================================================
+# RETAIL DEMAND FORECASTING - PROJECT RULES
+# ==================================================
+
+# Additional environment and secret files
+.env.*
+!.env.example
+**/secrets.toml
+
+# Local editor settings
+.vscode/
+.idea/
+
+# Temporary and generated reports
+reports/ui_07_3_check.json
+
+# Operating system files
+.DS_Store
+Thumbs.db
+desktop.ini
+# Generated feature datasets
+data/processed/*.csv
+# Kaggle dataset - keep locally, do not redistribute
+data/raw/train.csv

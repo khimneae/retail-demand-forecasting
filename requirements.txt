@@ -1,0 +1,23 @@
+
+# Retail Demand Forecasting - Python Dependencies
+# Developed with Python 3.13
+
+# Interactive dashboard
+streamlit==1.67.0
+altair==6.3.0
+
+# Data processing
+pandas==3.1.1
+numpy==2.5.4
+
+# Machine learning and model persistence
+scikit-learn==1.9.1
+scipy==1.18.1
+joblib==1.6.0
+
+# Visualization
+matplotlib==3.11.2
+
+# Streamlit data and image support
+pyarrow==26.0.1
+pillow==13.0.0
