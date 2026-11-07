@@ -165,6 +165,25 @@ For macOS/Linux, activate it with `source .venv/bin/activate` instead.
 python -m pip install -r requirements.txt
 ```
 
+### Download the Dataset (Required)
+
+The original dataset is not included in this repository
+because it is subject to Kaggle competition rules.
+
+To run the application locally:
+
+1. Visit the [Store Item Demand Forecasting Challenge](https://www.kaggle.com/competitions/demand-forecasting-kernels-only/data).
+2. Sign in to Kaggle and accept the competition rules.
+3. Download the dataset.
+4. Extract `train.csv` into `data/raw/`.
+
+Expected file location:
+
+`data/raw/train.csv`
+
+The application requires this file for historical analytics
+and generating forecasts.
+
 ### 4. Run the dashboard
 
 ```bash
@@ -190,8 +209,6 @@ The dataset contains daily sales observations for **10 stores** and **50 items**
 - Modeling and analysis scripts are located under `src/`.
 - The interactive forecast loads `models/hgb_deployment_model.joblib`.
 - Evaluation artifacts are available under `reports/metrics/` and `reports/figures/`.
-
-**Dataset attribution:** Verify the original dataset source and its redistribution permissions before publishing the raw CSV in a public repository.
 
 ## Limitations and Future Work
 
