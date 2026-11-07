@@ -1,5 +1,11 @@
 # Retail Demand Forecasting
 
+### Live Application
+
+**[Launch Live Demo](https://retail-demand-forecasting-wxzynardzz5nu74kmc99zr.streamlit.app/)** | **[View Source Code](https://github.com/khimneae/retail-demand-forecasting)**
+
+> **Demo Mode:** The live application uses independently generated synthetic retail sales data. The reported machine learning evaluation results were obtained from the original Kaggle dataset. Forecasts generated using synthetic data are illustrative and have not been separately validated.
+
 **End-to-End Machine Learning and Interactive Retail Analytics**
 
 An end-to-end retail demand forecasting project that combines historical sales analysis, feature engineering, machine learning, quantitative evaluation, and an interactive **Streamlit** dashboard.
