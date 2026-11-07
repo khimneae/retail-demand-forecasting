@@ -1,5 +1,5 @@
 from pathlib import Path
-
+from app.data_source import get_data_source
 import altair as alt
 import pandas as pd
 import streamlit as st
@@ -15,7 +15,7 @@ st.set_page_config(
 
 # 2. Project paths
 ROOT = Path(__file__).resolve().parents[2]
-DATA_PATH = ROOT / "data" / "raw" / "train.csv"
+DATA_PATH, IS_DEMO = get_data_source()
 
 
 # 3. Load data with caching

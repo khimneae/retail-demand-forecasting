@@ -1,6 +1,6 @@
 from pathlib import Path
 from datetime import date
-
+from app.data_source import get_data_source
 import pandas as pd
 import altair as alt
 import streamlit as st
@@ -22,7 +22,7 @@ st.set_page_config(
 # ==================================================
 
 ROOT = Path(__file__).resolve().parents[2]
-DATA_PATH = ROOT / "data" / "raw" / "train.csv"
+DATA_PATH, IS_DEMO = get_data_source()
 
 
 @st.cache_data(show_spinner="Loading sales data...")

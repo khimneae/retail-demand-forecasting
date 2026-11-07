@@ -165,24 +165,52 @@ For macOS/Linux, activate it with `source .venv/bin/activate` instead.
 python -m pip install -r requirements.txt
 ```
 
-### Download the Dataset (Required)
 
-The original dataset is not included in this repository
-because it is subject to Kaggle competition rules.
+### Data Sources
 
-To run the application locally:
+The application supports two data sources:
 
-1. Visit the [Store Item Demand Forecasting Challenge](https://www.kaggle.com/competitions/demand-forecasting-kernels-only/data).
-2. Sign in to Kaggle and accept the competition rules.
-3. Download the dataset.
-4. Extract `train.csv` into `data/raw/`.
+**1. Synthetic Demo Dataset (Default for Online Deployment)**
 
-Expected file location:
+The repository includes an independently generated synthetic dataset at:
 
-`data/raw/train.csv`
+`data/demo/synthetic_sales.csv`
 
-The application requires this file for historical analytics
-and generating forecasts.
+This dataset allows users to explore all four dashboard modules
+without downloading the original Kaggle competition data.
+
+To regenerate the synthetic dataset:
+
+```bash
+python src/generate_demo_data.py
+```
+
+**2. Original Kaggle Dataset (Optional)**
+
+The original dataset comes from the
+[Store Item Demand Forecasting Challenge](https://www.kaggle.com/competitions/demand-forecasting-kernels-only/data).
+
+To use it locally:
+
+1. Sign in to Kaggle and accept the competition rules.
+2. Download and extract the dataset.
+3. Place `train.csv` in `data/raw/`.
+
+The original dataset is not redistributed in this repository.
+
+**Data Source Selection**
+
+- `auto` (default): Use Kaggle data if available; otherwise use synthetic demo data.
+- `demo`: Always use synthetic demo data.
+- `original`: Require the original Kaggle dataset.
+
+Set the `RETAIL_DATA_MODE` environment variable to override the default.
+
+**Important:** Published model evaluation metrics were obtained
+using the original Kaggle dataset. Predictions generated from
+synthetic demo data are illustrative and have not been validated
+against that dataset.
+
 
 ### 4. Run the dashboard
 
@@ -198,7 +226,8 @@ Open the URL shown in the terminal (normally `http://localhost:8501`).
 python tests/check_ui_07_3.py
 ```
 
-The project passed **37/37 automated validation checks** in its local development environment. These checks cover data consistency, evaluation artifacts, and forecasting behavior; they do not replace deployment smoke testing.
+The latest local validation run completed successfully:
+25 automated checks passed, 0 failed. These checks cover data consistency, evaluation artifacts, and forecasting behavior; they do not replace deployment smoke testing.
 
 ## Data and Reproducibility
 

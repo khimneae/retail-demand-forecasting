@@ -3,6 +3,7 @@ from pathlib import Path
 import pandas as pd
 import streamlit as st
 
+from app.data_source import get_data_source
 
 # ==================================================
 # 1. GLOBAL PAGE CONFIGURATION
@@ -16,9 +17,11 @@ st.set_page_config(
 
 # Paths are resolved relative to this file (app/main.py).
 ROOT = Path(__file__).resolve().parents[1]
-DATA_PATH = ROOT / "data" / "raw" / "train.csv"
-CSS_PATH = Path(__file__).resolve().parent / "assets" / "retail.css"
 
+# Automatically select the local Kaggle or synthetic demo dataset.
+DATA_PATH, IS_DEMO = get_data_source()
+
+CSS_PATH = Path(__file__).resolve().parent / "assets" / "retail.css"
 
 # ==================================================
 # 2. UI-07.2 - DYNAMIC DATASET OVERVIEW
@@ -240,5 +243,14 @@ st.html(RESPONSIVE_CSS_PATH)
 # ==================================================
 # 5. EXECUTE CURRENT PAGE
 # ==================================================
-
+# Clearly distinguish synthetic demo data from Kaggle evaluation results.
+if IS_DEMO:
+    st.info(
+        "**SYNTHETIC DEMO MODE** — This application is using "
+        "independently generated retail sales data. "
+        "The reported machine learning evaluation metrics were "
+        "obtained from the original Kaggle dataset, not from "
+        "the synthetic demo dataset.",
+        icon="ℹ️",
+    )
 selected_page.run()

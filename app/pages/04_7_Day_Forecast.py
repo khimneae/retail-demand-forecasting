@@ -1,5 +1,5 @@
 from pathlib import Path
-
+from app.data_source import get_data_source
 import altair as alt
 import joblib
 import numpy as np
@@ -19,12 +19,27 @@ st.set_page_config(
 
 ROOT = Path(__file__).resolve().parents[2]
 
-DATA_PATH = ROOT / "data" / "raw" / "train.csv"
+# Automatically select Kaggle or synthetic demo data.
+DATA_PATH, IS_DEMO = get_data_source()
 
+# Keep the existing deployment model.
 MODEL_PATH = (
     ROOT / "models" / "hgb_deployment_model.joblib"
 )
+# ==================================================
+# SYNTHETIC DATA DISCLOSURE
+# ==================================================
 
+if IS_DEMO:
+    st.warning(
+        "**Synthetic Forecast Demonstration** — "
+        "Predictions use independently generated sales history "
+        "with a model originally trained on Kaggle data. "
+        "These predictions are illustrative only and have "
+        "not been validated on the synthetic dataset. "
+        "Published MAE, RMSE, and WAPE metrics refer "
+        "exclusively to the original Kaggle evaluation."
+    )
 
 # ==================================================
 # 2. LOAD DATA AND MODEL
