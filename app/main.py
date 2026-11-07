@@ -1,7 +1,15 @@
+import sys
 from pathlib import Path
 
 import pandas as pd
 import streamlit as st
+
+# Ensure the project root is available for package imports
+# on both local Windows and Streamlit Cloud (Linux).
+ROOT = Path(__file__).resolve().parents[1]
+
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
 
 from app.data_source import get_data_source
 
@@ -14,10 +22,6 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="auto",
 )
-
-# Paths are resolved relative to this file (app/main.py).
-ROOT = Path(__file__).resolve().parents[1]
-
 # Automatically select the local Kaggle or synthetic demo dataset.
 DATA_PATH, IS_DEMO = get_data_source()
 
